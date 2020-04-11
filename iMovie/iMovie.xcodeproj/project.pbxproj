@@ -56,13 +56,8 @@
 		4722376A24421D71005B47B9 /* iMovie */ = {
 			isa = PBXGroup;
 			children = (
-				4722376B24421D71005B47B9 /* AppDelegate.swift */,
-				4722376D24421D71005B47B9 /* SceneDelegate.swift */,
-				4722376F24421D71005B47B9 /* ContentView.swift */,
-				4722377124421D73005B47B9 /* Assets.xcassets */,
-				4722377624421D73005B47B9 /* LaunchScreen.storyboard */,
-				4722377924421D73005B47B9 /* Info.plist */,
-				4722377324421D73005B47B9 /* Preview Content */,
+				4722377F24422097005B47B9 /* Assets */,
+				4722378024422196005B47B9 /* Sources */,
 			);
 			path = iMovie;
 			sourceTree = "<group>";
@@ -73,6 +68,27 @@
 				4722377424421D73005B47B9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4722377F24422097005B47B9 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				4722377124421D73005B47B9 /* Assets.xcassets */,
+				4722377624421D73005B47B9 /* LaunchScreen.storyboard */,
+				4722377924421D73005B47B9 /* Info.plist */,
+				4722377324421D73005B47B9 /* Preview Content */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		4722378024422196005B47B9 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4722376B24421D71005B47B9 /* AppDelegate.swift */,
+				4722376D24421D71005B47B9 /* SceneDelegate.swift */,
+				4722376F24421D71005B47B9 /* ContentView.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,10 +301,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"iMovie/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"iMovie/Assets/Preview Content\"";
 				DEVELOPMENT_TEAM = V62PZ8S9D8;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iMovie/Info.plist;
+				INFOPLIST_FILE = iMovie/Assets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,10 +321,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"iMovie/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"iMovie/Assets/Preview Content\"";
 				DEVELOPMENT_TEAM = V62PZ8S9D8;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iMovie/Info.plist;
+				INFOPLIST_FILE = iMovie/Assets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
