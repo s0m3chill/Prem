@@ -21,6 +21,11 @@
 		47D5B69F2451B27A0091125A /* VideoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5B69E2451B27A0091125A /* VideoListView.swift */; };
 		47D5B6A42451CF6F0091125A /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5B6A32451CF6F0091125A /* DetailsView.swift */; };
 		47D5B6A72451D7680091125A /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5B6A62451D7680091125A /* EditView.swift */; };
+		47EC2E6D2451E02C00C656BE /* astronomia.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 47EC2E6C2451E02C00C656BE /* astronomia.m4a */; };
+		47EC2E6F2451E03500C656BE /* coffin_dance.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 47EC2E6E2451E03500C656BE /* coffin_dance.mp4 */; };
+		47EC2E712451E03D00C656BE /* ride.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 47EC2E702451E03D00C656BE /* ride.mp4 */; };
+		47EC2E742451F59A00C656BE /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EC2E732451F59A00C656BE /* ImagePicker.swift */; };
+		47EC2E762451F98100C656BE /* PlayerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EC2E752451F98100C656BE /* PlayerContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +58,11 @@
 		47D5B69E2451B27A0091125A /* VideoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListView.swift; sourceTree = "<group>"; };
 		47D5B6A32451CF6F0091125A /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		47D5B6A62451D7680091125A /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		47EC2E6C2451E02C00C656BE /* astronomia.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = astronomia.m4a; sourceTree = "<group>"; };
+		47EC2E6E2451E03500C656BE /* coffin_dance.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = coffin_dance.mp4; sourceTree = "<group>"; };
+		47EC2E702451E03D00C656BE /* ride.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ride.mp4; sourceTree = "<group>"; };
+		47EC2E732451F59A00C656BE /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		47EC2E752451F98100C656BE /* PlayerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +115,8 @@
 		4722377F24422097005B47B9 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				47EC2E692451DF2600C656BE /* Video */,
+				47EC2E682451DF2000C656BE /* Audio */,
 				4722377124421D73005B47B9 /* Assets.xcassets */,
 				4722377624421D73005B47B9 /* LaunchScreen.storyboard */,
 				4722377924421D73005B47B9 /* Info.plist */,
@@ -118,6 +130,7 @@
 			children = (
 				4722376B24421D71005B47B9 /* AppDelegate.swift */,
 				4722376D24421D71005B47B9 /* SceneDelegate.swift */,
+				47EC2E722451F58400C656BE /* Components */,
 				47D5B6972451AE480091125A /* Datasource */,
 				47D5B6982451AE860091125A /* Modules */,
 			);
@@ -174,6 +187,32 @@
 				47D5B6A62451D7680091125A /* EditView.swift */,
 			);
 			path = Edit;
+			sourceTree = "<group>";
+		};
+		47EC2E682451DF2000C656BE /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				47EC2E6C2451E02C00C656BE /* astronomia.m4a */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		47EC2E692451DF2600C656BE /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				47EC2E6E2451E03500C656BE /* coffin_dance.mp4 */,
+				47EC2E702451E03D00C656BE /* ride.mp4 */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		47EC2E722451F58400C656BE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				47EC2E732451F59A00C656BE /* ImagePicker.swift */,
+				47EC2E752451F98100C656BE /* PlayerContainer.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,8 +276,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4722377824421D73005B47B9 /* LaunchScreen.storyboard in Resources */,
+				47EC2E712451E03D00C656BE /* ride.mp4 in Resources */,
+				47EC2E6F2451E03500C656BE /* coffin_dance.mp4 in Resources */,
 				4722377524421D73005B47B9 /* Preview Assets.xcassets in Resources */,
 				4722377224421D73005B47B9 /* Assets.xcassets in Resources */,
+				47EC2E6D2451E02C00C656BE /* astronomia.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +317,9 @@
 				4722376C24421D71005B47B9 /* AppDelegate.swift in Sources */,
 				47D5B69F2451B27A0091125A /* VideoListView.swift in Sources */,
 				47D5B6A42451CF6F0091125A /* DetailsView.swift in Sources */,
+				47EC2E762451F98100C656BE /* PlayerContainer.swift in Sources */,
 				47D5B6A72451D7680091125A /* EditView.swift in Sources */,
+				47EC2E742451F59A00C656BE /* ImagePicker.swift in Sources */,
 				4722376E24421D71005B47B9 /* SceneDelegate.swift in Sources */,
 				47D5B69B2451AFDD0091125A /* VideoRow.swift in Sources */,
 			);

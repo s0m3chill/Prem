@@ -6,7 +6,7 @@
 //  Copyright © 2020 Dariy Kordiyak. All rights reserved.
 //
 
-import MapKit
+import SwiftUI
 
 struct VideoItem {
     let id = UUID()

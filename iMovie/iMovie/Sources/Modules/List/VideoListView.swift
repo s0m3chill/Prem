@@ -15,11 +15,13 @@ struct VideoListView: View {
     var body: some View {
         NavigationView {
             List(videos) { video in
-                VideoRow(videoItem: video)
+                NavigationLink(destination: DetailsView()) {
+                    VideoRow(videoItem: video)
+                }
             }
             .navigationBarTitle("Edited videos")
             .navigationBarItems(trailing:
-                NavigationLink(destination: DetailsView()) {
+                NavigationLink(destination: EditView()) {
                     Text("+")
                 }
             )

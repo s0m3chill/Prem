@@ -7,10 +7,25 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct EditView: View {
+    
+    @State private var showImagePicker: Bool = false
+    @State private var videoUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "coffin_dance", ofType: "mp4")!)
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Spacer()
+            Button(action: {
+                self.showImagePicker.toggle()
+            }) {
+                Text("Play video")
+            }
+            .sheet(isPresented: $showImagePicker) {
+                AVPlayerView(videoURL: self.$videoUrl).transition(.move(edge: .bottom)).edgesIgnoringSafeArea(.all)
+            }
+        }
     }
 }
 
