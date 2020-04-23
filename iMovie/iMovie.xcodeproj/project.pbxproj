@@ -13,7 +13,26 @@
 		4722377224421D73005B47B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4722377124421D73005B47B9 /* Assets.xcassets */; };
 		4722377524421D73005B47B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4722377424421D73005B47B9 /* Preview Assets.xcassets */; };
 		4722377824421D73005B47B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4722377624421D73005B47B9 /* LaunchScreen.storyboard */; };
+		47D5B6902451A4B70091125A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47D5B68F2451A4B70091125A /* RealmSwift.framework */; };
+		47D5B6912451A4B70091125A /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 47D5B68F2451A4B70091125A /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		47D5B6952451A6180091125A /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47D5B6942451A6180091125A /* Realm.framework */; };
+		47D5B6962451A6180091125A /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 47D5B6942451A6180091125A /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		47D5B6922451A4B70091125A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				47D5B6962451A6180091125A /* Realm.framework in Embed Frameworks */,
+				47D5B6912451A4B70091125A /* RealmSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4722376824421D71005B47B9 /* iMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +43,8 @@
 		4722377424421D73005B47B9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4722377724421D73005B47B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4722377924421D73005B47B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47D5B68F2451A4B70091125A /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		47D5B6942451A6180091125A /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47D5B6952451A6180091125A /* Realm.framework in Frameworks */,
+				47D5B6902451A4B70091125A /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +65,7 @@
 			children = (
 				4722376A24421D71005B47B9 /* iMovie */,
 				4722376924421D71005B47B9 /* Products */,
+				47D5B68E2451A4B70091125A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,9 +110,42 @@
 			children = (
 				4722376B24421D71005B47B9 /* AppDelegate.swift */,
 				4722376D24421D71005B47B9 /* SceneDelegate.swift */,
-				4722376F24421D71005B47B9 /* ContentView.swift */,
+				47D5B6972451AE480091125A /* Datasource */,
+				47D5B6982451AE860091125A /* Modules */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		47D5B68E2451A4B70091125A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				47D5B6942451A6180091125A /* Realm.framework */,
+				47D5B68F2451A4B70091125A /* RealmSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		47D5B6972451AE480091125A /* Datasource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Datasource;
+			sourceTree = "<group>";
+		};
+		47D5B6982451AE860091125A /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				47D5B6992451AE9B0091125A /* List */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		47D5B6992451AE9B0091125A /* List */ = {
+			isa = PBXGroup;
+			children = (
+				4722376F24421D71005B47B9 /* ContentView.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -101,6 +158,8 @@
 				4722376424421D71005B47B9 /* Sources */,
 				4722376524421D71005B47B9 /* Frameworks */,
 				4722376624421D71005B47B9 /* Resources */,
+				47D5B6922451A4B70091125A /* Embed Frameworks */,
+				47D5B6932451A52D0091125A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -156,6 +215,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		47D5B6932451A52D0091125A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4722376424421D71005B47B9 /* Sources */ = {
@@ -304,6 +385,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"iMovie/Assets/Preview Content\"";
 				DEVELOPMENT_TEAM = V62PZ8S9D8;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = iMovie/Assets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -324,6 +409,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"iMovie/Assets/Preview Content\"";
 				DEVELOPMENT_TEAM = V62PZ8S9D8;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = iMovie/Assets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
