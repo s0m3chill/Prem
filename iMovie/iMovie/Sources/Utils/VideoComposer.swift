@@ -13,7 +13,7 @@ class VideoComposer {
     
     // MARK: - Properties
     
-    static let firstVideoUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "ride", ofType: "mp4")!)
+    static let firstVideoUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "car_ride", ofType: "mp4")!)
     static let secondVideoUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "coffin_dance", ofType: "mp4")!)
     static let audioUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "astronomia", ofType: "m4a")!)
     
@@ -122,18 +122,12 @@ class VideoComposer {
         }
         
         let saveVideoToPhotos = {
-            PHPhotoLibrary.shared().performChanges({ PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: outputURL) }) { saved, error in
-                let success = saved && (error == nil)
-                let title = success ? "Success" : "Error"
-                let message = success ? "Video saved" : "Failed to save video"
-                
-                //          let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-                //          alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
-                //          self.present(alert, animated: true, completion: nil)
+            PHPhotoLibrary.shared().performChanges({ PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: outputURL) }) { isSaved, error in
+                let isSuccessful = isSaved && (error == nil)
+                print(isSuccessful)
             }
         }
         
-        // Ensure permission to access Photo Library
         if PHPhotoLibrary.authorizationStatus() != .authorized {
             PHPhotoLibrary.requestAuthorization({ status in
                 if status == .authorized {

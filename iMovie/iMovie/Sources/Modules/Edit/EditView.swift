@@ -11,13 +11,12 @@ import AVKit
 
 struct EditView: View {
     
-    @State private var performVideoMerge = false
     private var videoComposer = VideoComposer()
     
     var body: some View {
         VStack {
             Button(action: {
-                self.performVideoMerge.toggle()
+                self.videoComposer.merge()
             }) {
                 Text("Merge video")
             }

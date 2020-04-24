@@ -12,6 +12,8 @@
 		4722377224421D73005B47B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4722377124421D73005B47B9 /* Assets.xcassets */; };
 		4722377524421D73005B47B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4722377424421D73005B47B9 /* Preview Assets.xcassets */; };
 		4722377824421D73005B47B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4722377624421D73005B47B9 /* LaunchScreen.storyboard */; };
+		47530E50245351D100968BAA /* coffin_dance.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 47530E4F245351D000968BAA /* coffin_dance.mp4 */; };
+		47530E522453522800968BAA /* car_ride.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 47530E512453522800968BAA /* car_ride.mp4 */; };
 		47851A782452BF30000D1625 /* VideoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47851A772452BF30000D1625 /* VideoEditor.swift */; };
 		47851A7D2452C263000D1625 /* VideoComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47851A7C2452C263000D1625 /* VideoComposer.swift */; };
 		47D5B6902451A4B70091125A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47D5B68F2451A4B70091125A /* RealmSwift.framework */; };
@@ -24,8 +26,6 @@
 		47D5B6A42451CF6F0091125A /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5B6A32451CF6F0091125A /* DetailsView.swift */; };
 		47D5B6A72451D7680091125A /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5B6A62451D7680091125A /* EditView.swift */; };
 		47EC2E6D2451E02C00C656BE /* astronomia.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 47EC2E6C2451E02C00C656BE /* astronomia.m4a */; };
-		47EC2E6F2451E03500C656BE /* coffin_dance.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 47EC2E6E2451E03500C656BE /* coffin_dance.mp4 */; };
-		47EC2E712451E03D00C656BE /* ride.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 47EC2E702451E03D00C656BE /* ride.mp4 */; };
 		47EC2E742451F59A00C656BE /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EC2E732451F59A00C656BE /* ImagePicker.swift */; };
 		47EC2E762451F98100C656BE /* PlayerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EC2E752451F98100C656BE /* PlayerContainer.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +53,8 @@
 		4722377424421D73005B47B9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4722377724421D73005B47B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4722377924421D73005B47B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47530E4F245351D000968BAA /* coffin_dance.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = coffin_dance.mp4; sourceTree = "<group>"; };
+		47530E512453522800968BAA /* car_ride.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = car_ride.mp4; sourceTree = "<group>"; };
 		47851A772452BF30000D1625 /* VideoEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEditor.swift; sourceTree = "<group>"; };
 		47851A7C2452C263000D1625 /* VideoComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoComposer.swift; sourceTree = "<group>"; };
 		47D5B68F2451A4B70091125A /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
@@ -63,8 +65,6 @@
 		47D5B6A32451CF6F0091125A /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		47D5B6A62451D7680091125A /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		47EC2E6C2451E02C00C656BE /* astronomia.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = astronomia.m4a; sourceTree = "<group>"; };
-		47EC2E6E2451E03500C656BE /* coffin_dance.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = coffin_dance.mp4; sourceTree = "<group>"; };
-		47EC2E702451E03D00C656BE /* ride.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ride.mp4; sourceTree = "<group>"; };
 		47EC2E732451F59A00C656BE /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		47EC2E752451F98100C656BE /* PlayerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -213,8 +213,8 @@
 		47EC2E692451DF2600C656BE /* Video */ = {
 			isa = PBXGroup;
 			children = (
-				47EC2E6E2451E03500C656BE /* coffin_dance.mp4 */,
-				47EC2E702451E03D00C656BE /* ride.mp4 */,
+				47530E512453522800968BAA /* car_ride.mp4 */,
+				47530E4F245351D000968BAA /* coffin_dance.mp4 */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -289,9 +289,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47530E50245351D100968BAA /* coffin_dance.mp4 in Resources */,
 				4722377824421D73005B47B9 /* LaunchScreen.storyboard in Resources */,
-				47EC2E712451E03D00C656BE /* ride.mp4 in Resources */,
-				47EC2E6F2451E03500C656BE /* coffin_dance.mp4 in Resources */,
+				47530E522453522800968BAA /* car_ride.mp4 in Resources */,
 				4722377524421D73005B47B9 /* Preview Assets.xcassets in Resources */,
 				4722377224421D73005B47B9 /* Assets.xcassets in Resources */,
 				47EC2E6D2451E02C00C656BE /* astronomia.m4a in Resources */,
