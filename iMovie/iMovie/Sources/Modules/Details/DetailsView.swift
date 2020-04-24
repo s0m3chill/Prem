@@ -9,8 +9,19 @@
 import SwiftUI
 
 struct DetailsView: View {
+    
+    @State private var showImagePicker = false
+    @State private var videoUrl = VideoComposer.firstVideoUrl
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: {
+            self.showImagePicker.toggle()
+        }) {
+            Text("Play video")
+        }
+        .sheet(isPresented: $showImagePicker) {
+            PlayerContainer(videoURL: self.$videoUrl).transition(.move(edge: .bottom)).edgesIgnoringSafeArea(.all)
+        }
     }
 }
 

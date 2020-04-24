@@ -11,25 +11,15 @@ import AVKit
 
 struct EditView: View {
     
-    @State private var showImagePicker = false
     @State private var performVideoMerge = false
-    @State private var videoUrl = VideoHelper.firstVideoUrl
+    private var videoComposer = VideoComposer()
     
     var body: some View {
         VStack {
-            Spacer()
-            Button(action: {
-                self.showImagePicker.toggle()
-            }) {
-                Text("Play video")
-            }
             Button(action: {
                 self.performVideoMerge.toggle()
             }) {
                 Text("Merge video")
-            }
-            .sheet(isPresented: $showImagePicker) {
-                PlayerContainer(videoURL: self.$videoUrl).transition(.move(edge: .bottom)).edgesIgnoringSafeArea(.all)
             }
         }
     }
