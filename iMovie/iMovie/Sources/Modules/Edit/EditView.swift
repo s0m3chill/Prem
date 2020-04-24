@@ -11,8 +11,9 @@ import AVKit
 
 struct EditView: View {
     
-    @State private var showImagePicker: Bool = false
-    @State private var videoUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "coffin_dance", ofType: "mp4")!)
+    @State private var showImagePicker = false
+    @State private var performVideoMerge = false
+    @State private var videoUrl = VideoHelper.firstVideoUrl
     
     var body: some View {
         VStack {
@@ -22,8 +23,13 @@ struct EditView: View {
             }) {
                 Text("Play video")
             }
+            Button(action: {
+                self.performVideoMerge.toggle()
+            }) {
+                Text("Merge video")
+            }
             .sheet(isPresented: $showImagePicker) {
-                AVPlayerView(videoURL: self.$videoUrl).transition(.move(edge: .bottom)).edgesIgnoringSafeArea(.all)
+                PlayerContainer(videoURL: self.$videoUrl).transition(.move(edge: .bottom)).edgesIgnoringSafeArea(.all)
             }
         }
     }

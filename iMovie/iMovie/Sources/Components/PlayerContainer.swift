@@ -9,21 +9,23 @@
 import SwiftUI
 import AVKit
 
-struct AVPlayerView: UIViewControllerRepresentable {
+struct PlayerContainer: UIViewControllerRepresentable {
 
     @Binding var videoURL: URL
 
     private var player: AVPlayer {
         return AVPlayer(url: videoURL)
     }
+    
+    func makeUIViewController(context: Context) -> AVPlayerViewController {
+        return AVPlayerViewController()
+    }
 
-    func updateUIViewController(_ playerController: AVPlayerViewController, context: Context) {
+    func updateUIViewController(_ playerController: AVPlayerViewController,
+                                context: Context) {
         playerController.modalPresentationStyle = .fullScreen
         playerController.player = player
         playerController.player?.play()
     }
-
-    func makeUIViewController(context: Context) -> AVPlayerViewController {
-        return AVPlayerViewController()
-    }
+    
 }

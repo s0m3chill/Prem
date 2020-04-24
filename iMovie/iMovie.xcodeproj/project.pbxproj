@@ -12,6 +12,9 @@
 		4722377224421D73005B47B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4722377124421D73005B47B9 /* Assets.xcassets */; };
 		4722377524421D73005B47B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4722377424421D73005B47B9 /* Preview Assets.xcassets */; };
 		4722377824421D73005B47B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4722377624421D73005B47B9 /* LaunchScreen.storyboard */; };
+		47851A782452BF30000D1625 /* VideoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47851A772452BF30000D1625 /* VideoEditor.swift */; };
+		47851A7A2452BFE4000D1625 /* VideoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47851A792452BFE4000D1625 /* VideoHelper.swift */; };
+		47851A7D2452C263000D1625 /* VideoComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47851A7C2452C263000D1625 /* VideoComposer.swift */; };
 		47D5B6902451A4B70091125A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47D5B68F2451A4B70091125A /* RealmSwift.framework */; };
 		47D5B6912451A4B70091125A /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 47D5B68F2451A4B70091125A /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		47D5B6952451A6180091125A /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47D5B6942451A6180091125A /* Realm.framework */; };
@@ -51,6 +54,9 @@
 		4722377424421D73005B47B9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4722377724421D73005B47B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4722377924421D73005B47B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47851A772452BF30000D1625 /* VideoEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEditor.swift; sourceTree = "<group>"; };
+		47851A792452BFE4000D1625 /* VideoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHelper.swift; sourceTree = "<group>"; };
+		47851A7C2452C263000D1625 /* VideoComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoComposer.swift; sourceTree = "<group>"; };
 		47D5B68F2451A4B70091125A /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		47D5B6942451A6180091125A /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		47D5B69A2451AFDD0091125A /* VideoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRow.swift; sourceTree = "<group>"; };
@@ -133,8 +139,18 @@
 				47EC2E722451F58400C656BE /* Components */,
 				47D5B6972451AE480091125A /* Datasource */,
 				47D5B6982451AE860091125A /* Modules */,
+				47851A7B2452C209000D1625 /* Utils */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		47851A7B2452C209000D1625 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				47851A792452BFE4000D1625 /* VideoHelper.swift */,
+				47851A7C2452C263000D1625 /* VideoComposer.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		47D5B68E2451A4B70091125A /* Frameworks */ = {
@@ -211,6 +227,7 @@
 			children = (
 				47EC2E732451F59A00C656BE /* ImagePicker.swift */,
 				47EC2E752451F98100C656BE /* PlayerContainer.swift */,
+				47851A772452BF30000D1625 /* VideoEditor.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -318,7 +335,10 @@
 				47D5B69F2451B27A0091125A /* VideoListView.swift in Sources */,
 				47D5B6A42451CF6F0091125A /* DetailsView.swift in Sources */,
 				47EC2E762451F98100C656BE /* PlayerContainer.swift in Sources */,
+				47851A7D2452C263000D1625 /* VideoComposer.swift in Sources */,
 				47D5B6A72451D7680091125A /* EditView.swift in Sources */,
+				47851A782452BF30000D1625 /* VideoEditor.swift in Sources */,
+				47851A7A2452BFE4000D1625 /* VideoHelper.swift in Sources */,
 				47EC2E742451F59A00C656BE /* ImagePicker.swift in Sources */,
 				4722376E24421D71005B47B9 /* SceneDelegate.swift in Sources */,
 				47D5B69B2451AFDD0091125A /* VideoRow.swift in Sources */,
