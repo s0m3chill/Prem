@@ -8,10 +8,14 @@
 
 import MediaPlayer
 import Photos
+import Combine
 
-class VideoComposer {
+final class VideoComposer {
     
     // MARK: - Properties
+    
+    static let editingFinishedNotification = Notification.Name("EditingFinishedNotification")
+    private(set) var editingMessage: String = ""
     
     static let firstVideoUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "car_ride", ofType: "mp4")!)
     static let secondVideoUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "coffin_dance", ofType: "mp4")!)
@@ -124,7 +128,9 @@ class VideoComposer {
         let saveVideoToPhotos = {
             PHPhotoLibrary.shared().performChanges({ PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: outputURL) }) { isSaved, error in
                 let isSuccessful = isSaved && (error == nil)
-                print(isSuccessful)
+                self.editingMessage = isSuccessful ? "Video edit: Success" : "Video edit: Failure"
+                NotificationCenter.default.post(name: VideoComposer.editingFinishedNotification,
+                                                object: self)
             }
         }
         

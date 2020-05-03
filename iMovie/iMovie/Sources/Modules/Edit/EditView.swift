@@ -8,10 +8,22 @@
 
 import SwiftUI
 import AVKit
+import Combine
 
 struct EditView: View {
     
     private var videoComposer = VideoComposer()
+    private var cancelSet: Set<AnyCancellable> = []
+
+    init() {
+        NotificationCenter.default.publisher(for: VideoComposer.editingFinishedNotification)
+            .compactMap{ $0.object as? VideoComposer }
+            .map{ $0.editingMessage }
+            .sink() { message in
+                print(message)
+            }
+            .store(in: &cancelSet)
+    }
     
     var body: some View {
         VStack {
