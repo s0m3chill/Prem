@@ -26,6 +26,7 @@ final class VideoComposer {
     private var audioAsset = AVAsset(url: audioUrl)
     
     private let mixComposition = AVMutableComposition()
+    private let dataStore = Database.Store()
     
     // MARK: - API
     
@@ -33,16 +34,14 @@ final class VideoComposer {
         let mainComposition = videoComposition(tracks: videoTracks())
         loadAudioTrack()
         
-        guard let exporter = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHighestQuality) else {
+        guard let exporter = AVAssetExportSession(asset: mixComposition,
+                                                  presetName: AVAssetExportPresetHighestQuality) else {
             fatalError()
         }
         exporter.outputURL = videoStorageUrl()
         exporter.outputFileType = AVFileType.mov
         exporter.videoComposition = mainComposition
         
-//        self.editingMessage = "Video edit: Success"
-//        NotificationCenter.default.post(name: VideoComposer.editingFinishedNotification,
-//                                        object: self)
         exporter.exportAsynchronously() {
             DispatchQueue.main.async {
                 self.exportDidFinish(exporter)
@@ -98,7 +97,8 @@ final class VideoComposer {
     }
     
     private func loadAudioTrack() {
-        let audioTrack = mixComposition.addMutableTrack(withMediaType: .audio, preferredTrackID: 0)
+        let audioTrack = mixComposition.addMutableTrack(withMediaType: .audio,
+                                                        preferredTrackID: 0)
         do {
             try audioTrack?.insertTimeRange(CMTimeRangeMake(start: CMTime.zero,
                                                             duration: CMTimeAdd(firstVideoAsset.duration, secondVideoAsset.duration)),
@@ -123,17 +123,24 @@ final class VideoComposer {
     }
     
     private func exportDidFinish(_ session: AVAssetExportSession) {
-        guard session.status == AVAssetExportSession.Status.completed,
-            let outputURL = session.outputURL else {
-                return
+        guard session.status == .completed, let outputURL = session.outputURL else {
+            return
         }
         
         let saveVideoToPhotos = {
-            PHPhotoLibrary.shared().performChanges({ PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: outputURL) }) { isSaved, error in
+            PHPhotoLibrary.shared().performChanges({ PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: outputURL) }) { [weak self] isSaved, error in
+                defer {
+                    NotificationCenter.default.post(name: VideoComposer.editingFinishedNotification,
+                                                    object: self)
+                }
+                guard let sself = self else {
+                    return
+                }
                 let isSuccessful = isSaved && (error == nil)
-                self.editingMessage = isSuccessful ? "Video edit: Success" : "Video edit: Failure"
-                NotificationCenter.default.post(name: VideoComposer.editingFinishedNotification,
-                                                object: self)
+                sself.editingMessage = isSuccessful ? "Video edit: Success" : "Video edit: Failure"
+                if isSuccessful {
+                    sself.dataStore.save(for: outputURL)
+                }
             }
         }
         
