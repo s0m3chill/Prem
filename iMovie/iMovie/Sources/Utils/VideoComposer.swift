@@ -40,6 +40,9 @@ final class VideoComposer {
         exporter.outputFileType = AVFileType.mov
         exporter.videoComposition = mainComposition
         
+//        self.editingMessage = "Video edit: Success"
+//        NotificationCenter.default.post(name: VideoComposer.editingFinishedNotification,
+//                                        object: self)
         exporter.exportAsynchronously() {
             DispatchQueue.main.async {
                 self.exportDidFinish(exporter)

@@ -7,23 +7,11 @@
 //
 
 import SwiftUI
-import AVKit
-import Combine
 
 struct EditView: View {
     
     private var videoComposer = VideoComposer()
-    private var cancelSet: Set<AnyCancellable> = []
-
-    init() {
-        NotificationCenter.default.publisher(for: VideoComposer.editingFinishedNotification)
-            .compactMap{ $0.object as? VideoComposer }
-            .map{ $0.editingMessage }
-            .sink() { message in
-                print(message)
-            }
-            .store(in: &cancelSet)
-    }
+    @ObservedObject private var model = EditViewModel()
     
     var body: some View {
         VStack {
@@ -33,6 +21,11 @@ struct EditView: View {
                 Text("Merge video")
             }
         }
+        .alert(isPresented: $model.isAlertShown, content: {
+            Alert(title: Text("Title"),
+                  message: Text(model.editingResultMessage),
+                  dismissButton: .default(Text("OK")) {})
+        })
     }
 }
 
