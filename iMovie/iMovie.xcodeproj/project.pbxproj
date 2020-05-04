@@ -142,8 +142,7 @@
 			children = (
 				4722376B24421D71005B47B9 /* AppDelegate.swift */,
 				4722376D24421D71005B47B9 /* SceneDelegate.swift */,
-				47DCD5E4245F2B20002F41EB /* App.swift */,
-				47DCD5E6245F2BF5002F41EB /* Store.swift */,
+				47E59C7F2460234B0020005F /* Main */,
 				47EC2E722451F58400C656BE /* Components */,
 				47D5B6972451AE480091125A /* Datasource */,
 				47D5B6982451AE860091125A /* Modules */,
@@ -228,6 +227,15 @@
 				47DCD5E0245F1150002F41EB /* Database.swift */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		47E59C7F2460234B0020005F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				47DCD5E4245F2B20002F41EB /* App.swift */,
+				47DCD5E6245F2BF5002F41EB /* Store.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		47EC2E682451DF2000C656BE /* Audio */ = {
