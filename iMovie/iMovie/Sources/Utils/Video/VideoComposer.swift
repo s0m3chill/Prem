@@ -16,6 +16,7 @@ final class VideoComposer {
     
     static let editingFinishedNotification = Notification.Name("EditingFinishedNotification")
     private(set) var editingMessage: String = ""
+    private(set) var urlPath: String = ""
     
     static let firstVideoUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "car_ride", ofType: "mp4")!)
     static let secondVideoUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "coffin_dance", ofType: "mp4")!)
@@ -24,10 +25,8 @@ final class VideoComposer {
     private var firstVideoAsset = AVAsset(url: firstVideoUrl)
     private var secondVideoAsset = AVAsset(url: secondVideoUrl)
     private var audioAsset = AVAsset(url: audioUrl)
-    
     private let mixComposition = AVMutableComposition()
-    private let dataStore = Database.Store()
-    
+            
     // MARK: - API
     
     func merge() {
@@ -138,9 +137,7 @@ final class VideoComposer {
                 }
                 let isSuccessful = isSaved && (error == nil)
                 sself.editingMessage = isSuccessful ? "Video edit: Success" : "Video edit: Failure"
-                if isSuccessful {
-                    sself.dataStore.save(for: outputURL)
-                }
+                sself.urlPath = outputURL.absoluteString
             }
         }
         

@@ -13,6 +13,8 @@ struct EditView: View {
     private var videoComposer = VideoComposer()
     @ObservedObject private var model = EditViewModel()
     
+    @EnvironmentObject var store: AppStore
+    
     var body: some View {
         VStack {
             Button(action: {
@@ -24,7 +26,9 @@ struct EditView: View {
         .alert(isPresented: $model.isAlertShown, content: {
             Alert(title: Text("Title"),
                   message: Text(model.editingResultMessage),
-                  dismissButton: .default(Text("OK")) {})
+                  dismissButton: .default(Text("OK")) {
+                    self.store.send(.save(paths: [self.model.urlPath]))
+                })
         })
     }
 }

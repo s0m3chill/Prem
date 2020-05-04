@@ -10,8 +10,23 @@ import SwiftUI
 
 struct VideoListView: View {
     
-    private let videos = [VideoItem(title: "edited!")]
+    @EnvironmentObject var store: AppStore
+    
+    var body: some View {
+        VideoList(videos: store.state.searchResult.map { VideoItem(title: $0) })
+        .onAppear(perform: fetch)
+    }
 
+    private func fetch() {
+        store.send(.fetch)
+    }
+    
+}
+
+struct VideoList: View {
+    
+    let videos: [VideoItem]
+    
     var body: some View {
         NavigationView {
             List(videos) { video in
@@ -27,7 +42,6 @@ struct VideoListView: View {
             )
         }
     }
-
 }
 
 struct VideoListView_Previews: PreviewProvider {

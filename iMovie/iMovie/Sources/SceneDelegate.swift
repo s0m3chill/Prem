@@ -12,6 +12,9 @@ import SwiftUI
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    let store = AppStore(initialState: .init(),
+                         reducer: appReducer,
+                         environment: World())
 
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
@@ -21,7 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = UIHostingController(rootView: VideoListView())
+        let rootView = VideoListView().environmentObject(store)
+        window.rootViewController = UIHostingController(rootView: rootView)
         self.window = window
         window.makeKeyAndVisible()
     }

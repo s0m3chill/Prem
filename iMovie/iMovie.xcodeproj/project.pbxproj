@@ -27,6 +27,8 @@
 		47D5B6A72451D7680091125A /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D5B6A62451D7680091125A /* EditView.swift */; };
 		47D93AFD245ECE3300B33063 /* EditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D93AFC245ECE3300B33063 /* EditViewModel.swift */; };
 		47DCD5E1245F1150002F41EB /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DCD5E0245F1150002F41EB /* Database.swift */; };
+		47DCD5E5245F2B20002F41EB /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DCD5E4245F2B20002F41EB /* App.swift */; };
+		47DCD5E7245F2BF5002F41EB /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DCD5E6245F2BF5002F41EB /* Store.swift */; };
 		47EC2E6D2451E02C00C656BE /* astronomia.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 47EC2E6C2451E02C00C656BE /* astronomia.m4a */; };
 		47EC2E742451F59A00C656BE /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EC2E732451F59A00C656BE /* ImagePicker.swift */; };
 		47EC2E762451F98100C656BE /* PlayerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EC2E752451F98100C656BE /* PlayerContainer.swift */; };
@@ -68,6 +70,8 @@
 		47D5B6A62451D7680091125A /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		47D93AFC245ECE3300B33063 /* EditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewModel.swift; sourceTree = "<group>"; };
 		47DCD5E0245F1150002F41EB /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		47DCD5E4245F2B20002F41EB /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		47DCD5E6245F2BF5002F41EB /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		47EC2E6C2451E02C00C656BE /* astronomia.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = astronomia.m4a; sourceTree = "<group>"; };
 		47EC2E732451F59A00C656BE /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		47EC2E752451F98100C656BE /* PlayerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerContainer.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 			children = (
 				4722376B24421D71005B47B9 /* AppDelegate.swift */,
 				4722376D24421D71005B47B9 /* SceneDelegate.swift */,
+				47DCD5E4245F2B20002F41EB /* App.swift */,
+				47DCD5E6245F2BF5002F41EB /* Store.swift */,
 				47EC2E722451F58400C656BE /* Components */,
 				47D5B6972451AE480091125A /* Datasource */,
 				47D5B6982451AE860091125A /* Modules */,
@@ -149,8 +155,8 @@
 		47851A7B2452C209000D1625 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				47851A7C2452C263000D1625 /* VideoComposer.swift */,
-				47DCD5E0245F1150002F41EB /* Database.swift */,
+				47DCD5EB245F53E2002F41EB /* Database */,
+				47DCD5EA245F53DA002F41EB /* Video */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -206,6 +212,22 @@
 				47D93AFC245ECE3300B33063 /* EditViewModel.swift */,
 			);
 			path = Edit;
+			sourceTree = "<group>";
+		};
+		47DCD5EA245F53DA002F41EB /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				47851A7C2452C263000D1625 /* VideoComposer.swift */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		47DCD5EB245F53E2002F41EB /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				47DCD5E0245F1150002F41EB /* Database.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		47EC2E682451DF2000C656BE /* Audio */ = {
@@ -333,11 +355,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47DCD5E7245F2BF5002F41EB /* Store.swift in Sources */,
 				47D93AFD245ECE3300B33063 /* EditViewModel.swift in Sources */,
 				47D5B69D2451B0130091125A /* VideoItem.swift in Sources */,
 				4722376C24421D71005B47B9 /* AppDelegate.swift in Sources */,
 				47D5B69F2451B27A0091125A /* VideoListView.swift in Sources */,
 				47D5B6A42451CF6F0091125A /* DetailsView.swift in Sources */,
+				47DCD5E5245F2B20002F41EB /* App.swift in Sources */,
 				47EC2E762451F98100C656BE /* PlayerContainer.swift in Sources */,
 				47851A7D2452C263000D1625 /* VideoComposer.swift in Sources */,
 				47D5B6A72451D7680091125A /* EditView.swift in Sources */,
