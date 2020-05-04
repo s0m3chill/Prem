@@ -28,8 +28,13 @@ func appReducer(state: inout AppState,
     switch action {
     case let .save(paths):
         state.searchResult = paths
-    case let .fetch:
-        return environment.store.read().eras
+    case .fetch:
+        return environment
+            .store
+            .readPublisher()
+            .replaceError(with: [])
+            .map { AppAction.save(paths: $0) }
+            .eraseToAnyPublisher()
     }
     
     return Empty().eraseToAnyPublisher()

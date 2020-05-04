@@ -20,33 +20,13 @@ final class Database {
             realm.add(video)
         }
     }
-    
-    func read() -> [String] {
-        let videos = realm.objects(StoredVideoData.self)
-        return videos.map { $0.path }
-    }
-    
-    func readPublisher(matching query: String) -> AnyPublisher<[String], Error> {
-//        guard
-//            var urlComponents = URLComponents(string: "https://api.github.com/search/repositories")
-//            else { preconditionFailure("Can't create url components...") }
-//
-//        urlComponents.queryItems = [
-//            URLQueryItem(name: "q", value: query)
-//        ]
-//
-//        guard
-//            let url = urlComponents.url
-//            else { preconditionFailure("Can't create url from url components...") }
-//
-//        return session
-//            .dataTaskPublisher(for: url)
-//            .map { $0.data }
-//            .decode(type: SearchResponse.self, decoder: decoder)
-//            .map { $0.items }
-//            .eraseToAnyPublisher()
         
+    func readPublisher() -> AnyPublisher<[String], Error> {
+        let storedVideosUrls = Array(realm.objects(StoredVideoData.self).map { $0.path })
+        let passthrough = PassthroughSubject<[String], Error>()
+        _ = passthrough.append(storedVideosUrls)
         
+        return passthrough.eraseToAnyPublisher()
     }
     
 }
@@ -60,7 +40,6 @@ final class StoredVideoData: Object {
         
         return videoData
     }
-    
 }
     
 

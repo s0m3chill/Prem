@@ -8,7 +8,6 @@
 
 import MediaPlayer
 import Photos
-import Combine
 
 final class VideoComposer {
     
