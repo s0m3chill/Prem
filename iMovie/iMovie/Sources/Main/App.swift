@@ -19,6 +19,7 @@ struct AppState {
 
 enum AppAction {
     case save(paths: [String])
+    case set(paths: [String])
     case fetch
 }
 
@@ -29,12 +30,14 @@ func appReducer(state: inout AppState,
     case let .save(paths):
         environment.store.save(urlPath: paths.last!)
         state.searchResult = paths
+    case let .set(paths):
+        state.searchResult = paths
     case .fetch:
         return environment
             .store
             .readPublisher()
             .replaceError(with: [])
-            .map { AppAction.save(paths: $0) }
+            .map { AppAction.set(paths: $0) }
             .eraseToAnyPublisher()
     }
     

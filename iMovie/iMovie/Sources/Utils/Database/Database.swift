@@ -23,10 +23,7 @@ final class Database {
         
     func readPublisher() -> AnyPublisher<[String], Error> {
         let storedVideosUrls = Array(realm.objects(StoredVideoData.self).map { $0.path })
-        let passthrough = PassthroughSubject<[String], Error>()
-        _ = passthrough.append(storedVideosUrls)
-        
-        return passthrough.eraseToAnyPublisher()
+        return CurrentValueSubject<[String], Error>(storedVideosUrls).eraseToAnyPublisher()
     }
     
 }

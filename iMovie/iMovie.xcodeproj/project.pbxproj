@@ -190,8 +190,8 @@
 		47D5B6992451AE9B0091125A /* List */ = {
 			isa = PBXGroup;
 			children = (
-				47D5B69A2451AFDD0091125A /* VideoRow.swift */,
 				47D5B69E2451B27A0091125A /* VideoListView.swift */,
+				47D5B69A2451AFDD0091125A /* VideoRow.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
