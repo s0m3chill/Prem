@@ -24,9 +24,9 @@ struct EditView: View {
             }
         }
         .alert(isPresented: $model.isAlertShown, content: {
-            Alert(title: Text("Title"),
-                  message: Text(model.editingResultMessage),
-                  dismissButton: .default(Text("OK")) {
+            Alert(title: Text("Edining finished"),
+                  message: Text("Save to database?"),
+                  dismissButton: .default(Text("Yes")) {
                     self.store.send(.save(paths: [self.model.urlPath]))
                 })
         })

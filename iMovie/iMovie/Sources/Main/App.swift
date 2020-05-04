@@ -27,6 +27,7 @@ func appReducer(state: inout AppState,
                 environment: World) -> AnyPublisher<AppAction, Never> {
     switch action {
     case let .save(paths):
+        environment.store.save(urlPath: paths.last!)
         state.searchResult = paths
     case .fetch:
         return environment

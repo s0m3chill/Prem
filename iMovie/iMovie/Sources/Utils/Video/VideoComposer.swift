@@ -14,7 +14,6 @@ final class VideoComposer {
     // MARK: - Properties
     
     static let editingFinishedNotification = Notification.Name("EditingFinishedNotification")
-    private(set) var editingMessage: String = ""
     private(set) var urlPath: String = ""
     
     static let firstVideoUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "car_ride", ofType: "mp4")!)
@@ -134,8 +133,6 @@ final class VideoComposer {
                 guard let sself = self else {
                     return
                 }
-                let isSuccessful = isSaved && (error == nil)
-                sself.editingMessage = isSuccessful ? "Video edit: Success" : "Video edit: Failure"
                 sself.urlPath = outputURL.absoluteString
             }
         }

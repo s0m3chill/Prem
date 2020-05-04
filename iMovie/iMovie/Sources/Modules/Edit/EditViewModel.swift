@@ -13,15 +13,15 @@ final class EditViewModel: ObservableObject {
     
     @Published var isAlertShown: Bool = false
     var urlPath: String = ""
-    var editingResultMessage = ""
+    
     private var cancelSet: Set<AnyCancellable> = []
 
     init() {
         NotificationCenter.default.publisher(for: VideoComposer.editingFinishedNotification)
             .compactMap{ $0.object as? VideoComposer }
             .map{ $0.urlPath }
+            .receive(on: DispatchQueue.main)
             .sink() { path in
-                self.editingResultMessage = "good"
                 self.urlPath = path
                 self.isAlertShown = true
         }

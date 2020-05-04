@@ -14,8 +14,8 @@ final class Database {
     private var videos: [StoredVideoData] = []
     private let realm = try! Realm(configuration: .defaultConfiguration)
     
-    func save(for url: URL) {
-        let video = StoredVideoData.create(with: url)
+    func save(urlPath: String) {
+        let video = StoredVideoData.create(with: urlPath)
         try! realm.write {
             realm.add(video)
         }
@@ -32,11 +32,11 @@ final class Database {
 }
 
 final class StoredVideoData: Object {
-    dynamic var path: String = ""
+    @objc dynamic var path: String = ""
     
-    static func create(with url: URL) -> StoredVideoData {
+    static func create(with path: String) -> StoredVideoData {
         let videoData = StoredVideoData()
-        videoData.path = url.absoluteString
+        videoData.path = path
         
         return videoData
     }
