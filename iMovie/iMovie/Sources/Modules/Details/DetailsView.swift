@@ -11,7 +11,7 @@ import SwiftUI
 struct DetailsView: View {
     
     @State private var showImagePicker = false
-    @State private var videoUrl = VideoComposer.firstVideoUrl
+    @State var videoItem: VideoItem
     
     var body: some View {
         Button(action: {
@@ -20,13 +20,9 @@ struct DetailsView: View {
             Text("Play video")
         }
         .sheet(isPresented: $showImagePicker) {
-            PlayerContainer(videoURL: self.$videoUrl).transition(.move(edge: .bottom)).edgesIgnoringSafeArea(.all)
+            PlayerContainer(videoItem: self.$videoItem)
+                .transition(.move(edge: .bottom))
+                .edgesIgnoringSafeArea(.all)
         }
-    }
-}
-
-struct DetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailsView()
     }
 }

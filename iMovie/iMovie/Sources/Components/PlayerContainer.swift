@@ -11,10 +11,11 @@ import AVKit
 
 struct PlayerContainer: UIViewControllerRepresentable {
 
-    @Binding var videoURL: URL
-
+    @Binding var videoItem: VideoItem
+    
     private var player: AVPlayer {
-        return AVPlayer(url: videoURL)
+        let videoPathUrl = FileManager.default.documentsDirectoryUrl.appendingPathComponent(videoItem.title)
+        return AVPlayer(url: videoPathUrl)
     }
     
     func makeUIViewController(context: Context) -> AVPlayerViewController {

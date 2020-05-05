@@ -24,6 +24,7 @@ final class VideoComposer {
     private var secondVideoAsset = AVAsset(url: secondVideoUrl)
     private var audioAsset = AVAsset(url: audioUrl)
     private let mixComposition = AVMutableComposition()
+    private var outputName = ""
             
     // MARK: - API
     
@@ -35,8 +36,9 @@ final class VideoComposer {
                                                   presetName: AVAssetExportPresetHighestQuality) else {
             fatalError()
         }
+        outputName = videoName()
         exporter.outputURL = videoStorageUrl()
-        exporter.outputFileType = AVFileType.mov
+        exporter.outputFileType = .mov
         exporter.videoComposition = mainComposition
         
         exporter.exportAsynchronously() {
@@ -98,8 +100,9 @@ final class VideoComposer {
                                                         preferredTrackID: 0)
         do {
             try audioTrack?.insertTimeRange(CMTimeRangeMake(start: CMTime.zero,
-                                                            duration: CMTimeAdd(firstVideoAsset.duration, secondVideoAsset.duration)),
-                                            of: audioAsset.tracks(withMediaType: .audio)[0] ,
+                                                            duration: CMTimeAdd(firstVideoAsset.duration,
+                                                                                secondVideoAsset.duration)),
+                                            of: audioAsset.tracks(withMediaType: .audio)[0],
                                             at: CMTime.zero)
         }
         catch {
@@ -108,24 +111,25 @@ final class VideoComposer {
     }
     
     private func videoStorageUrl() -> URL {
-        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-            fatalError()
-        }
+        return FileManager.default.documentsDirectoryUrl.appendingPathComponent(outputName)
+    }
+    
+    private func videoName() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .long
-        dateFormatter.timeStyle = .short
-        let date = dateFormatter.string(from: Date())
-        
-        return documentDirectory.appendingPathComponent("mergeVideo-\(date).mov")
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let timeStamp = dateFormatter.string(from: Date())
+        return "iMovie-\(timeStamp).mov"
     }
     
     private func exportDidFinish(_ session: AVAssetExportSession) {
-        guard session.status == .completed, let outputURL = session.outputURL else {
+        guard session.status == .completed,
+            let outputURL = session.outputURL else {
             return
         }
         
         let saveVideoToPhotos = {
-            PHPhotoLibrary.shared().performChanges({ PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: outputURL) }) { [weak self] isSaved, error in
+            PHPhotoLibrary.shared().performChanges({
+                PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: outputURL) }) { [weak self] isSaved, error in
                 defer {
                     NotificationCenter.default.post(name: VideoComposer.editingFinishedNotification,
                                                     object: self)
@@ -133,9 +137,7 @@ final class VideoComposer {
                 guard let sself = self else {
                     return
                 }
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                sself.videoItem = VideoItem(title: dateFormatter.string(from: Date()),
+                sself.videoItem = VideoItem(title: sself.outputName,
                                             path: outputURL.absoluteString)
             }
         }

@@ -31,7 +31,7 @@ struct VideoList: View {
     var body: some View {
         NavigationView {
             List(videos) { video in
-                NavigationLink(destination: DetailsView()) {
+                NavigationLink(destination: DetailsView(videoItem: video)) {
                     VideoRow(videoItem: video)
                 }
             }
