@@ -14,26 +14,28 @@ final class Database {
     private var videos: [StoredVideoData] = []
     private let realm = try! Realm(configuration: .defaultConfiguration)
     
-    func save(urlPath: String) {
-        let video = StoredVideoData.create(with: urlPath)
+    func save(video: VideoItem) {
+        let video = StoredVideoData.create(with: video)
         try! realm.write {
             realm.add(video)
         }
     }
         
-    func readPublisher() -> AnyPublisher<[String], Error> {
-        let storedVideosUrls = Array(realm.objects(StoredVideoData.self).map { $0.path })
-        return CurrentValueSubject<[String], Error>(storedVideosUrls).eraseToAnyPublisher()
+    func readPublisher() -> AnyPublisher<[VideoItem], Error> {
+        let storedVideos = Array(realm.objects(StoredVideoData.self).map { VideoItem(title: $0.name, path: $0.path) })
+        return CurrentValueSubject<[VideoItem], Error>(storedVideos).eraseToAnyPublisher()
     }
     
 }
 
 final class StoredVideoData: Object {
+    @objc dynamic var name: String = ""
     @objc dynamic var path: String = ""
     
-    static func create(with path: String) -> StoredVideoData {
+    static func create(with video: VideoItem) -> StoredVideoData {
         let videoData = StoredVideoData()
-        videoData.path = path
+        videoData.name = video.title
+        videoData.path = video.path
         
         return videoData
     }

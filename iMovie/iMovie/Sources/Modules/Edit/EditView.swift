@@ -27,7 +27,7 @@ struct EditView: View {
             Alert(title: Text("Edining finished"),
                   message: Text("Save to database?"),
                   dismissButton: .default(Text("Yes")) {
-                    self.store.send(.save(paths: [self.model.urlPath]))
+                    self.store.send(.save(videos: [self.model.videoItem]))
                 })
         })
     }

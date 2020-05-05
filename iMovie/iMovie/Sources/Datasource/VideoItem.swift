@@ -11,6 +11,7 @@ import SwiftUI
 struct VideoItem {
     let id = UUID()
     let title: String
+    let path: String
 }
 
 extension VideoItem: Identifiable {}

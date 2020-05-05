@@ -12,17 +12,17 @@ import Combine
 final class EditViewModel: ObservableObject {
     
     @Published var isAlertShown: Bool = false
-    var urlPath: String = ""
+    var videoItem: VideoItem!
     
     private var cancelSet: Set<AnyCancellable> = []
 
     init() {
         NotificationCenter.default.publisher(for: VideoComposer.editingFinishedNotification)
             .compactMap{ $0.object as? VideoComposer }
-            .map{ $0.urlPath }
+            .map{ $0.videoItem }
             .receive(on: DispatchQueue.main)
-            .sink() { path in
-                self.urlPath = path
+            .sink() { video in
+                self.videoItem = video!
                 self.isAlertShown = true
         }
         .store(in: &cancelSet)

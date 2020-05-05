@@ -14,12 +14,12 @@ struct World {
 }
 
 struct AppState {
-    var searchResult: [String] = []
+    var searchResult: [VideoItem] = []
 }
 
 enum AppAction {
-    case save(paths: [String])
-    case set(paths: [String])
+    case save(videos: [VideoItem])
+    case set(videos: [VideoItem])
     case fetch
 }
 
@@ -27,17 +27,17 @@ func appReducer(state: inout AppState,
                 action: AppAction,
                 environment: World) -> AnyPublisher<AppAction, Never> {
     switch action {
-    case let .save(paths):
-        environment.store.save(urlPath: paths.last!)
-        state.searchResult = paths
-    case let .set(paths):
-        state.searchResult = paths
+    case let .save(videos):
+        environment.store.save(video: videos.last!)
+        state.searchResult = videos
+    case let .set(videos):
+        state.searchResult = videos
     case .fetch:
         return environment
             .store
             .readPublisher()
             .replaceError(with: [])
-            .map { AppAction.set(paths: $0) }
+            .map { AppAction.set(videos: $0) }
             .eraseToAnyPublisher()
     }
     

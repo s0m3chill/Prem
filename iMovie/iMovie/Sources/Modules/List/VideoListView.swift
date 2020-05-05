@@ -13,7 +13,8 @@ struct VideoListView: View {
     @EnvironmentObject var store: AppStore
     
     var body: some View {
-        VideoList(videos: store.state.searchResult.map { VideoItem(title: $0) })
+        VideoList(videos: store.state.searchResult.map { VideoItem(title: $0.title,
+                                                                   path: $0.path) })
         .onAppear(perform: fetch)
     }
 

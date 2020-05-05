@@ -14,7 +14,7 @@ final class VideoComposer {
     // MARK: - Properties
     
     static let editingFinishedNotification = Notification.Name("EditingFinishedNotification")
-    private(set) var urlPath: String = ""
+    private(set) var videoItem: VideoItem!
     
     static let firstVideoUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "car_ride", ofType: "mp4")!)
     static let secondVideoUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "coffin_dance", ofType: "mp4")!)
@@ -133,7 +133,10 @@ final class VideoComposer {
                 guard let sself = self else {
                     return
                 }
-                sself.urlPath = outputURL.absoluteString
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                sself.videoItem = VideoItem(title: dateFormatter.string(from: Date()),
+                                            path: outputURL.absoluteString)
             }
         }
         
