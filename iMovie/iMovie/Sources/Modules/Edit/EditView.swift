@@ -33,7 +33,9 @@ struct EditView: View {
                   dismissButton: .default(Text("Yes")) {
                     self.isLoadingShown.toggle()
                     self.store.send(.save(videos: [self.model.videoItem]))
+                    self.store.send(.fetch)
                 })
         })
     }
+    
 }
