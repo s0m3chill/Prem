@@ -17,6 +17,7 @@
 		4773223C2461E8DD000CD888 /* FileManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4773223B2461E8DD000CD888 /* FileManager+Extensions.swift */; };
 		47851A782452BF30000D1625 /* VideoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47851A772452BF30000D1625 /* VideoEditor.swift */; };
 		47851A7D2452C263000D1625 /* VideoComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47851A7C2452C263000D1625 /* VideoComposer.swift */; };
+		47C3994B24654AAA000009BE /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C3994A24654AAA000009BE /* LoadingView.swift */; };
 		47D5B6902451A4B70091125A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47D5B68F2451A4B70091125A /* RealmSwift.framework */; };
 		47D5B6912451A4B70091125A /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 47D5B68F2451A4B70091125A /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		47D5B6952451A6180091125A /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47D5B6942451A6180091125A /* Realm.framework */; };
@@ -63,6 +64,7 @@
 		4773223B2461E8DD000CD888 /* FileManager+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extensions.swift"; sourceTree = "<group>"; };
 		47851A772452BF30000D1625 /* VideoEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEditor.swift; sourceTree = "<group>"; };
 		47851A7C2452C263000D1625 /* VideoComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoComposer.swift; sourceTree = "<group>"; };
+		47C3994A24654AAA000009BE /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		47D5B68F2451A4B70091125A /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		47D5B6942451A6180091125A /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		47D5B69A2451AFDD0091125A /* VideoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRow.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				47EC2E732451F59A00C656BE /* ImagePicker.swift */,
 				47EC2E752451F98100C656BE /* PlayerContainer.swift */,
 				47851A772452BF30000D1625 /* VideoEditor.swift */,
+				47C3994A24654AAA000009BE /* LoadingView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				47851A7D2452C263000D1625 /* VideoComposer.swift in Sources */,
 				47D5B6A72451D7680091125A /* EditView.swift in Sources */,
 				47851A782452BF30000D1625 /* VideoEditor.swift in Sources */,
+				47C3994B24654AAA000009BE /* LoadingView.swift in Sources */,
 				47EC2E742451F59A00C656BE /* ImagePicker.swift in Sources */,
 				4722376E24421D71005B47B9 /* SceneDelegate.swift in Sources */,
 				4773223C2461E8DD000CD888 /* FileManager+Extensions.swift in Sources */,

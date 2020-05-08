@@ -37,7 +37,7 @@ struct VideoList: View {
             }
             .navigationBarTitle("Edited videos")
             .navigationBarItems(trailing:
-                NavigationLink(destination: EditView()) {
+                NavigationLink(destination: EditView(isLoadingShown: false)) {
                     Text("+")
                 }
             )
